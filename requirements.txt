@@ -1,0 +1,2 @@
+# いったんmitmproxyのみ記載
+mitmproxy==0.18.2
