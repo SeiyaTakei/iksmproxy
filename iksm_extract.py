@@ -47,7 +47,7 @@ class IksmInfo:
 
     def set_config(self, conf):
         self.conf = conf
-        self.path = self.conf['splatnet2statink_conf']
+        self.path = self.conf['splatnet2statink'] + "/config.txt"
               
 
     def get_iksm_session(self):

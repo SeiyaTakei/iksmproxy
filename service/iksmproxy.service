@@ -1,0 +1,12 @@
+[Unit]
+Description=iksm proxy server
+After=network.target
+
+[Service]
+WorkingDirectory=
+ExecStart=python main.py
+ExecStop=/bin/kill -WINCH ${MAINPID}
+Type=simple
+
+[Install]
+WantedBy=multi-user.target
