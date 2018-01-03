@@ -1,6 +1,9 @@
 import json
 import iksm_proxy
 
+def send_data():
+    
+
 def config():
     f = open('config.json', 'r')
     c = json.load(f)
