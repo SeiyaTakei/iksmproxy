@@ -31,7 +31,7 @@ Enter splatnet2statink directory:
 #### daemon化が必要ないなら
 main.pyを実行すればOK。
 ```
-python main.py
+$ python main.py
 ```
 #### daemon化が必要なら
 serviceファイルを然るべき場所へ置く。  
