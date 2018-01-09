@@ -5,7 +5,7 @@ After=network.target
 [Service]
 User=root
 WorkingDirectory=/Users/SeiyaTakei/Programs/Python/git/splatnet2statink
-ExecStart=python splatnet2statink.py -M 120 -r
+ExecStart=/usr/bin/python splatnet2statink.py -M 120 -r
 ExecStop=/bin/kill -WINCH ${MAINPID}
 Type=simple
 
