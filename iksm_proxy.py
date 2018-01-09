@@ -1,4 +1,4 @@
-import subprocess
+import commands
 from mitmproxy import flow, controller, options
 from mitmproxy.proxy import ProxyServer, ProxyConfig
 import iksm_extract
@@ -28,7 +28,7 @@ class IksmProxy(flow.FlowMaster):
             #print("log", l.msg)
             self.info.set_rawstring(l.msg)
             if self.info.extract_iksm_session():
-                res = subprocess.check_call('/bin/systemctl restart splatnet2statink')
+                res = commands.getoutput('/bin/systemctl restart splatnet2statink')
 
 
     def set_config(self, conf):
