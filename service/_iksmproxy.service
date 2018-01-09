@@ -3,8 +3,7 @@ Description=iksm proxy server
 After=network.target
 
 [Service]
-User=root
-WorkingDirectory=/Users/SeiyaTakei/Programs/Python/git/iksmproxy
+WorkingDirectory=
 ExecStart=python main.py
 ExecStop=/bin/kill -WINCH ${MAINPID}
 Type=simple
