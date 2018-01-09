@@ -1,3 +1,4 @@
+import subprocess
 from mitmproxy import flow, controller, options
 from mitmproxy.proxy import ProxyServer, ProxyConfig
 import iksm_extract
@@ -26,7 +27,8 @@ class IksmProxy(flow.FlowMaster):
         if "iksm_session" in l.msg and "/?lang=ja-JP" in l.msg:
             #print("log", l.msg)
             self.info.set_rawstring(l.msg)
-            self.info.extract_iksm_session()
+            if self.info.extract_iksm_session():
+                res = subprocess.check_call('/bin/systemctl restart splatnet2statink')
 
 
     def set_config(self, conf):

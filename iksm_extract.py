@@ -14,6 +14,7 @@ class IksmInfo:
 
 
     def extract_iksm_session(self):
+        changed = False
         # extract set-cookie from raw data
         head = self.raw.find("iksm_session")
         tmpstr = self.raw[head:]
@@ -28,11 +29,12 @@ class IksmInfo:
         if self.iksm_session != self.iksm_session_new:
             self.iksm_session = self.iksm_session_new
             self.write_data()
-
+            changed = True
+        return changed
 
     def write_data(self):
         if os.path.exists(self.path):
-            print("config file is exists!")
+            print("config file exists!")
             f = open(self.path, 'r')
             c = json.load(f)
             f.close()
@@ -40,8 +42,9 @@ class IksmInfo:
             f = open(self.path, 'w')
             after = json.dump(c, f, indent=4)
             f.close()
+
         else:
-            print("config file is not exists...")
+            print("config file is not exist...")
             sys.exit(1)
 
 
